@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Log In container</h2>
+    <div>
+        <form>
+            <label for="_userName">User Name:</label><br>
+            <input type="text" id="_userName" name="_userName"><br><br>
+            <label for="_password">Password:</label><br>
+            <input type="text" id="_password" name="_password"><br><br>
+        </form>
+        <form>
+            <button onclick="valid_login()" class="login_btn" style="color: gray; background-color: orange; border-radius: 3px; padding: 20px; margin: 10px; border-color: orange; text-align: center;" type="button" value="Login">LogIn</button>
+        </form>
+    </div>
+    <script>
+        let attempt = 3;
+        function valid_login(){
+            var username = document.getElementById("_userName").value;
+            var Password = document.getElementById("_password").value;
+            if(username == "ra'ad128" && Password=="1234"){
+                alert("Login successfully");
+                window.location="sucsses.html";
+                return false;
+            }else{
+                attempt--;
+                alert("You have left " + attempt +" attempt");
+                if(attempt == 0){
+                    document.getElementById("_userName").disabled = true;
+                    document.getElementById("_password").disabled = true;
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
